@@ -34,8 +34,8 @@ const AuthWrapper = ({
 	const [user, loading, error] = useUser();
 	const showLoading = showLoadingBlock && (loading || showLoadingConstructor);
 	const showError = error;
-	const showAuth = showAuthBlock && (user || showAuthConstructor);
-	const showWithoutAuth = showWithoutAuthBlock && (!user || showWithoutAuthConstructor);
+	const showAuth = showAuthBlock && (!loading && user || showAuthConstructor);
+	const showWithoutAuth = showWithoutAuthBlock && (!loading && !user || showWithoutAuthConstructor);
 	return <Box min-height="32px" min-width="32px" {...rest}>
 		    
 		{showLoading && <Text {...override('Loading Text')} />}
